@@ -1,0 +1,112 @@
+/* ===== Theme (blue/cyan) ===== */
+:root{
+    --bg:#f8fafc;
+    --card:#ffffff;
+    --ink:#0f172a;
+    --muted:#64748b;
+    --primary:#2563eb;    /* blue-600 */
+    --primary-2:#06b6d4;  /* cyan-500 */
+    --border:#e2e8f0;
+    --radius:16px;
+    --shadow:0 12px 24px rgba(2,6,23,.08);
+}
+.logo img {
+    border-radius: 50%;
+}
+
+/* Base */
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.45}
+a{color:#2563eb;text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* Layout */
+.container{max-width:960px;margin:0 auto;padding:24px}
+.site-header{
+    background:linear-gradient(135deg,var(--primary),var(--primary-2));
+    color:#fff;padding:48px 0 36px;margin-bottom:-12px;
+    display: flex;
+    flex-direction: row-reverse;
+    padding-right: 15rem;
+
+}
+.site-header h1{margin:0 0 6px;font-size:32px;font-weight:800}
+.site-header p{margin:0;opacity:.95}
+.site-footer{color:var(--muted);font-size:13px;padding:24px 0}
+
+/* Card */
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow)}
+
+/* Grid (dùng ở index.jsp) */
+.grid{display:grid;gap:16px;grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:720px){.grid{grid-template-columns:1fr}}
+
+/* Field */
+.field label{display:block;font-weight:800;margin-bottom:6px}
+.field small{display:block;color:var(--muted);margin-top:6px}
+
+/* Inputs */
+input[type="text"],input[type="email"],input[type="tel"],input[type="date"],select{
+    width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:12px;background:#fff;outline:none;
+    transition:border-color .15s,box-shadow .15s
+}
+input:focus,select:focus{border-color:var(--primary-2);box-shadow:0 0 0 4px rgba(6,182,212,.18)}
+
+/* Section title */
+.section-title{color:#0b3d3a;font-size:18px;font-weight:800;margin:20px 0 12px;display:flex;align-items:center;gap:12px}
+.section-title.fancy::before{content:"";width:6px;height:22px;background:var(--primary-2);border-radius:6px}
+.section-title.fancy::after{content:"";flex:1;height:3px;background:#93c5fd55;border-radius:999px}
+
+/* Radio pills (index.jsp) */
+.choice-pills{display:flex;flex-wrap:wrap;gap:16px}
+.choice-pills .pill{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border:1px solid var(--border);border-radius:999px;background:#fff;transition:border-color .15s,background .15s,box-shadow .15s}
+.choice-pills .pill:hover{border-color:var(--primary-2);background:#f0f9ff}
+.choice-pills .pill input{appearance:none;-webkit-appearance:none;-moz-appearance:none;width:14px;height:14px;border-radius:50%;border:2px solid var(--primary-2);display:inline-block}
+.choice-pills .pill input:checked{background:var(--primary-2)}
+.choice-pills .pill:has(input:checked){background:#eff6ff;border-color:#93c5fd;box-shadow:0 4px 10px rgba(37,99,235,.12)}
+.choice-pills .pill input:checked + span{font-weight:700}
+
+/* Checkbox blocks (index.jsp) */
+.check-blocks{display:flex;flex-direction:column;gap:12px;margin:10px 0 16px}
+.checkline{display:flex;gap:12px;align-items:center;padding:14px 16px;border:1px solid var(--border);border-radius:14px;background:#fff;transition:border-color .15s,box-shadow .15s,background .15s}
+.checkline:hover{border-color:#93c5fd;box-shadow:0 6px 12px rgba(2,6,23,.06)}
+.checkline input{width:16px;height:16px}
+.checkline:has(input:checked){background:#f0f9ff;border-color:#93c5fd}
+
+/* Alert */
+.alert{background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;padding:12px 14px;border-radius:12px;margin:16px 0;font-weight:700}
+
+/* Buttons */
+.btn{border:1px solid var(--border);background:#fff;color:var(--ink);padding:12px 18px;border-radius:999px;cursor:pointer;font-weight:800;transition:transform .06s,box-shadow .15s,background .15s}
+.btn:hover{box-shadow:0 8px 16px rgba(2,6,23,.06)}
+.btn:active{transform:translateY(1px)}
+.btn.primary{background:var(--primary);color:#fff;border-color:transparent}
+.btn.primary:hover{background:#1d4ed8}
+.btn.block{display:block;width:100%;text-align:center;margin-top:8px}
+
+/* Focus ring (keyboard) */
+:focus-visible{outline:2px solid transparent;box-shadow:0 0 0 3px rgba(37,99,235,.35)}
+
+/* ===== Thanks page ===== */
+.success{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.success__icon{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:999px;background:#eff6ff;border:1px solid #bfdbfe}
+.success__icon svg{fill:var(--primary)}
+.success__title{margin:0;font-size:20px;font-weight:800;color:#0b3d3a}
+.success__subtitle{margin:2px 0 0;color:var(--muted)}
+
+/* Inline summary (ngang, tự xuống hàng khi hẹp) */
+.summary-inline{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap:16px 24px;
+    align-items:baseline;
+    margin:12px 0 16px;
+}
+.summary-inline .kv{display:flex;gap:6px;min-width:0;align-items:baseline}
+.summary-inline .k{font-weight:800;color:#0b3d3a;white-space:nowrap}
+.summary-inline .v{min-width:0;word-break:break-word;overflow-wrap:anywhere}
+/* cho mục Announcements chiếm full hàng */
+.summary-inline .span-2{grid-column:1 / -1}
+
+/* (đã có summary-inline trước đó; giữ nguyên) */
+
